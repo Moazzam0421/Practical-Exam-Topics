@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Array to CSV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row  d-flex justify-content-center align-items-center">
+            <div class="col-sm-12 col-md-8 text-center">
+                <h2 class="display-4 fw-bold text-decoration-underline m-5">2D Array to CSV</h2>
+                <p class="fw-bold ">Click the button to convert the 2D array to a CSV string:</p>
+                    <p></p>
+                    <button class="btn btn-primary shadow-lg btn-lg " onclick="convertToArray()">Convert to CSV</button>
+                    <pre  style="display: none;" class="m-5 output-body border border-2 border-dark p-4 rounded-5 fs-3 fw-800" id="csvOutput"></pre>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        
+        function arrayToCSV(arr) {
+            document.getElementById("csvOutput").style.display="";
+            
+            return arr.map(row => row.join(',')).join('\n');
+        }
+        function convertToArray() {
+            const twoDArray = [
+                ['Name', 'Age', 'City'],
+                ['John', 30, 'New York'],
+                ['Alice', 25, 'Los Angeles'],
+                ['Bob', 35, 'Chicago']
+            ];
+            const csvString = arrayToCSV(twoDArray);
+            document.getElementById('csvOutput').textContent = csvString;
+        }
+    </script>
+</body>
+
+</html>
